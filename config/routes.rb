@@ -1,5 +1,20 @@
 Stickies::Application.routes.draw do
-  devise_for :users
+  root to: "main#index"
+
+  devise_for :users, skip: [:sessions, :registrations]
+
+  devise_scope :user do 
+    get 'signup' => 'devise/registrations#new', :as => :new_user_registration 
+    post 'signup' => 'devise/registrations#create', :as => :user_registration 
+    get 'users/cancel' => 'devise/registrations#cancel', :as => :cancel_user_registration 
+    get 'users/edit' => 'devise/registrations#edit', :as => :edit_user_registration 
+    put 'users' => 'devise/registrations#update' 
+    delete 'users/cancel' => 'devise/registrations#destroy' 
+
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session 
+    post 'signin' => 'devise/sessions#create', :as => :user_session 
+    get 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session 
+  end 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
