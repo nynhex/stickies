@@ -36,7 +36,7 @@ group :development do
   gem 'pry'
 end
 
-gem 'dotenv'
+gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'devise'
 
