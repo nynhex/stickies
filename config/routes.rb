@@ -15,6 +15,8 @@ Stickies::Application.routes.draw do
     post 'signin' => 'devise/sessions#create', :as => :user_session 
     get 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session 
   end 
+
+  resources :stickies
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
