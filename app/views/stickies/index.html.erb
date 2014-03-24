@@ -1,6 +1,7 @@
-{{ hello }}
-
+<%= render 'partials/nav' %>
 <div ng-repeat="sticky in stickies">
-  <h3>{{sticky.title}}</h3>
-  <p>{{sticky.body}}</p>
+  <div class="sticky-note">
+    <h3>{{sticky.title}}<span class="archive-sticky">Close</span></h3>
+    <p>{{sticky.body}}</p>
+  </div>
 </div>
