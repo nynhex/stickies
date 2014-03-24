@@ -3,7 +3,10 @@ class StickiesController < ApplicationController
 
   def index
     stickies = current_user.stickies
-    render json: stickies.to_json
+    respond_to do |f|
+      f.html { render layout: false }
+      f.json {render json: stickies.to_json}
+    end
   end
 
   def show
