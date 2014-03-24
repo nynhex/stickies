@@ -1,1 +1,1 @@
-StickyApp = angular.module "StickyApp", ["StickyCtrls", "StickyRouter", "StickyService"]
+StickyApp = angular.module "StickyApp", ["StickyCtrls", "StickyRouter", "StickyService", "Draggable"]
