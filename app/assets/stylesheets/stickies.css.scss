@@ -1,3 +1,28 @@
 // Place all the styles related to the stickies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.archive-sticky {
+  float: right;
+  margin-right: 5px; 
+}
+
+.sticky-note {
+  height: 250px;
+  width: 250px;
+  border: 3px solid black;
+}
+
+.sticky-title {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.sticky-body {
+  margin: 10px 5px;
+}
+
+div.divider {
+  border-bottom: 3px solid black;
+  height: 0;
+}
