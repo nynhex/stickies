@@ -4,6 +4,8 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
   ($scope, Sticky) ->
     $scope.stickies = Sticky.query()
 
+    console.log $scope.stickies
+
     $scope.edit = (sticky) ->
       alert("Edit form: "+ sticky.title)
 

@@ -2,7 +2,7 @@ class StickiesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    stickies = current_user.stickies
+    stickies = current_user.stickies.order(:id)
     respond_to do |f|
       f.html { render "stickies/index", layout: false }
       f.json {render json: stickies.to_json}
