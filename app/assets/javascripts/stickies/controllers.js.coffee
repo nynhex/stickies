@@ -2,7 +2,6 @@ StickyCtrls = angular.module "StickyCtrls", []
 
 StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
   ($scope, Sticky) ->
-    $scope.hello = "Hello World"
     $scope.stickies = Sticky.query()
 
     $scope.edit = (sticky) ->
@@ -10,4 +9,8 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
 
     $scope.archive = (sticky) ->
       alert("Arcchive: " + sticky.title)
+
+    $scope.createSticky = () ->
+      Sticky.save {}, {title: "Title", body: "Content"}
+
 ]

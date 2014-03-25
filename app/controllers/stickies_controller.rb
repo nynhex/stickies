@@ -4,7 +4,7 @@ class StickiesController < ApplicationController
   def index
     stickies = current_user.stickies
     respond_to do |f|
-      f.html { render layout: false }
+      f.html { render "stickies/index", layout: false }
       f.json {render json: stickies.to_json}
     end
   end
@@ -17,7 +17,8 @@ class StickiesController < ApplicationController
   end
 
   def create
-    sticky = current_user.stickies.create()
+    create_params = params[:sticky].permit(:body, :title)
+    sticky = current_user.stickies.create(create_params)
 
     render json: sticky.to_json
   end

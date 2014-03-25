@@ -7,3 +7,8 @@ StickyService.factory "Sticky", [ "$resource",
         update:
           method: "PATCH"
 ]
+
+StickyService.config ["$httpProvider",
+  ($httpProvider)->
+     $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+]
