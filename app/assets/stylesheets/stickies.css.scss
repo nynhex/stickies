@@ -28,3 +28,15 @@ div.divider {
   border-bottom: 3px solid black;
   height: 0;
 }
+
+input.title {
+  text-align: center;
+  border: none;
+  outline: none;
+  width: 244px;
+}
+
+textarea.body {
+  height: 60px;
+  width: 60px;
+}

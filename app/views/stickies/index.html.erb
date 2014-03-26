@@ -1,8 +1,20 @@
 <%= render 'partials/nav' %>
+
 <div ng-repeat="sticky in stickies">
   <div class="sticky-note" ng-dblclick="edit(sticky)" ng-style="{ top: sticky.top, left: sticky.left}" drag-me="" ng-mouseup="letGoSticky(sticky, $index)">
-    <h3 class="sticky-title">{{sticky.title}}<span class="glyphicon glyphicon-remove archive-sticky" ng-click="archive(sticky)"></span></h3>
+
+    <h3 class="sticky-title" ng-hide="sticky.hiddentext">{{sticky.title}}
+      <span class="glyphicon glyphicon-remove archive-sticky" ng-click="archive(sticky)"></span>
+    </h3>
+
+    <h3 class="sticky-title" ng-show="sticky.hiddentext">
+      <form ng-submit="changeTitle(sticky)" >
+        <input type="text" class="title" autofocus ng-model="stickies.titlechange" />
+      </form>
+    </h3>
+
     <div class="divider"></div>
     <p class="sticky-body">{{sticky.body}}</p>
+
   </div>
 </div>
