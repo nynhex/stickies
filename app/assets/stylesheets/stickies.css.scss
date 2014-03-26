@@ -7,10 +7,15 @@
   margin-right: 5px; 
 }
 
+.archive-sticky:hover {
+  cursor: pointer;
+}
+
 .sticky-note {
   height: 250px;
   width: 250px;
   border: 3px solid black;
+  position: absolute;
 }
 
 .sticky-title {

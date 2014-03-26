@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325182222) do
+ActiveRecord::Schema.define(version: 20140326171230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140325182222) do
     t.datetime "updated_at"
     t.string   "left"
     t.string   "top"
+    t.boolean  "archive"
   end
 
   add_index "stickies", ["user_id"], name: "index_stickies_on_user_id", using: :btree

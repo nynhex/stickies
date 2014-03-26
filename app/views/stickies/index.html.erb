@@ -1,6 +1,6 @@
 <%= render 'partials/nav' %>
 
-<div ng-repeat="sticky in stickies">
+<div ng-repeat="sticky in stickies | filter:{archive: false}">
   <div class="sticky-note" ng-dblclick="editSticky(sticky)" ng-style="{ top: sticky.top, left: sticky.left}" drag-me="" ng-mouseup="letGoSticky(sticky, $index)">
 
     <form ng-submit="changeContent(sticky)" >

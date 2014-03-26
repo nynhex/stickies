@@ -16,7 +16,7 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
       Sticky.update {id: sticky.id}, sticky
 
     $scope.archive = (sticky) ->
-      alert("Arcchive: " + sticky.title)
+      sticky.archive = true
 
     $scope.createSticky = () ->
       Sticky.save {}, {title: "Title", body: "Content", left: "0px", top: "0px"}
