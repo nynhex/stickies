@@ -17,9 +17,11 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
 
     $scope.archive = (sticky) ->
       sticky.archive = true
+      Sticky.update {id: sticky.id}, sticky
+
 
     $scope.createSticky = () ->
-      Sticky.save {}, {title: "Title", body: "Content", left: "0px", top: "0px"}
+      console.log("Sticky Created")
 
     $scope.letGoSticky = (sticky, $index) ->
       left = $('.sticky-note')[$index].style.left
