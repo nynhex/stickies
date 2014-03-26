@@ -4,15 +4,16 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
   ($scope, Sticky) ->
     $scope.stickies = Sticky.query()
 
-    $scope.edit = (sticky) ->
+    $scope.editSticky = (sticky) ->
       $scope.stickies.titlechange = sticky.title
       $scope.stickies.bodychange = sticky.body
       sticky.hiddentext = true
 
-    $scope.changeTitle = (sticky) ->
+    $scope.changeContent = (sticky) ->
       sticky.title = $scope.stickies.titlechange
       sticky.body = $scope.stickies.bodychange
       sticky.hiddentext = false
+      Sticky.update {id: sticky.id}, sticky
 
     $scope.archive = (sticky) ->
       alert("Arcchive: " + sticky.title)
