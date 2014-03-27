@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <div ng-repeat="sticky in stickies | filter:{archive: false}">
+  <div ng-repeat="sticky in stickies | filter:{archive: false} | filter:searchSticky">
     <div class="sticky-note" ng-dblclick="editSticky(sticky)" ng-style="{ top: sticky.top, left: sticky.left, 'z-index': sticky.zIndex }" drag-me="" ng-mouseup="letGoSticky(sticky, $index)" ng-mousedown="focusSticky(sticky)" ng-class="{'sticky-shadow': sticky.stickyShadow}" >
 
       <form ng-submit="changeContent(sticky)" >

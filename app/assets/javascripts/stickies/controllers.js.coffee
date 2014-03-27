@@ -2,15 +2,17 @@ StickyCtrls = angular.module "StickyCtrls", []
 
 StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
   ($scope, Sticky) ->
-    $scope.stickies = Sticky.query()
+    $scope.stickies_promise = Sticky.query()
     $scope.sticks = $scope.stickies
     $scope.collapseArchive = true
     $scope.zIndex = 0;
-    $scope.shadow = {}; 
+    $scope.shadow = {};
+
+    $scope.clearSearch = () ->
+      $scope.searchSticky = "" 
 
     $scope.unArchive = () ->
       $scope.movingSticky.archive = false
-
 
     $scope.onMove = (event, ui, sticky, $index) ->
       $scope.movingSticky = sticky
