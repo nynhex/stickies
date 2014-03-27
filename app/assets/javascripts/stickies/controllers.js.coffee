@@ -8,6 +8,15 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
     $scope.zIndex = 0;
     $scope.shadow = {}; 
 
+    $scope.unArchive = () ->
+      $scope.movingSticky.archive = false
+
+
+    $scope.onMove = (event, ui, sticky, $index) ->
+      $scope.movingSticky = sticky
+      console.log $scope.movingSticky
+      console.log('move is happening')
+
     $scope.focusSticky = (sticky) ->
       $scope.zIndex += 1
       sticky.zIndex = $scope.zIndex

@@ -8,4 +8,3 @@ Draggable.directive 'dragMe',
         elem.draggable();
         return
       }
-      
