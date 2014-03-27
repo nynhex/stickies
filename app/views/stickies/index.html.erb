@@ -1,4 +1,9 @@
 <%= render 'partials/nav' %>
+<div class="archive-sticky" ng-class="{'archive-collapse': collapseArchive}">
+  <div ng-repeat="stick in sticks | filter:{archive: true}">
+    <h3 class="archive-sticky-title">{{stick.title}}</h3>
+  </div>
+</div>
 
 <div ng-repeat="sticky in stickies | filter:{archive: false}">
   <div class="sticky-note" ng-dblclick="editSticky(sticky)" ng-style="{ top: sticky.top, left: sticky.left}" drag-me="" ng-mouseup="letGoSticky(sticky, $index)">
@@ -6,7 +11,7 @@
     <form ng-submit="changeContent(sticky)" >
 
       <h3 class="sticky-title" ng-hide="sticky.hiddentext">{{sticky.title}}
-        <span class="glyphicon glyphicon-remove archive-sticky" ng-click="archive(sticky)"></span>
+        <span class="glyphicon glyphicon-remove x-sticky" ng-click="archive(sticky)"></span>
       </h3>
 
       <h3 class="sticky-title" ng-show="sticky.hiddentext">

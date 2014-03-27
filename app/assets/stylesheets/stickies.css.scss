@@ -2,12 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.navbar.navbar-default {
+  margin-bottom: 0px;  
+}
+
+.archive-sticky.archive-collapse {
+  width: 0px;
+}
+
 .archive-sticky {
+  width: 244px;
+  float: right;
+  height: 300px;
+  background-color: #f8f8f8;
+  position: relative;
+  z-index: 99;
+  overflow: hidden;
+  -webkit-transition: width 0.35s ease;
+  -moz-transition: width 0.35s ease;
+  -o-transition: width 0.35s ease;
+  transition: width 0.35s ease;
+}
+
+.x-sticky {
   float: right;
   margin-right: 5px; 
 }
 
-.archive-sticky:hover {
+.x-sticky:hover {
   cursor: pointer;
 }
 

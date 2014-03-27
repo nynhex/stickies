@@ -3,6 +3,11 @@ StickyCtrls = angular.module "StickyCtrls", []
 StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
   ($scope, Sticky) ->
     $scope.stickies = Sticky.query()
+    $scope.sticks = $scope.stickies
+    $scope.collapseArchive = true
+
+    $scope.toggleArchive = () ->
+      $scope.collapseArchive = !$scope.collapseArchive
 
     $scope.editSticky = (sticky) ->
       $scope.stickies.titlechange = sticky.title
