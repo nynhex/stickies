@@ -6,22 +6,31 @@
   margin-bottom: 0px;  
 }
 
+.archive-sticky-title {
+  width: 244px;
+  margin: 0;
+  padding: 10px;
+  border-top: 3px solid black;
+}
+
 .archive-sticky.archive-collapse {
   width: 0px;
+  border: 0px solid black;
 }
 
 .archive-sticky {
   width: 244px;
   float: right;
-  height: 300px;
   background-color: #f8f8f8;
   position: relative;
+  border: 3px solid black;
+  border-top: none;
   z-index: 99;
   overflow: hidden;
-  -webkit-transition: width 0.35s ease;
-  -moz-transition: width 0.35s ease;
-  -o-transition: width 0.35s ease;
-  transition: width 0.35s ease;
+  -webkit-transition: width 0.35s ease, border .5s ease;
+  -moz-transition: width 0.35s ease, border .5s ease;
+  -o-transition: width 0.35s ease, border .5s ease;
+  transition: width 0.35s ease, border .5s ease;
 }
 
 .x-sticky {
