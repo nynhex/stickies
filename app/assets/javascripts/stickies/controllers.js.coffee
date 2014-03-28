@@ -17,11 +17,11 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
 
     $scope.onMove = (event, ui, sticky, $index) ->
       $scope.movingSticky = sticky
-      console.log $scope.movingSticky
-      console.log('move is happening')
+
 
     $scope.unArchive = () ->
       $scope.movingSticky.archive = false
+      Sticky.update {id: $scope.movingSticky.id}, $scope.movingSticky
 
     $scope.focusSticky = (sticky) ->
       $scope.zIndex += 1
@@ -57,8 +57,9 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
       sticky.body = "Type content here"
       sticky.archive = false
       s = Sticky.save {}, sticky
-      console.log s
       $scope.stickies.push s
+      $scope.focusSticky(s)
+     
 
     $scope.letGoSticky = (sticky, $index) ->
       left = $('.sticky-note')[$index].style.left
