@@ -56,7 +56,9 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
       sticky.title = "New Sticky"
       sticky.body = "Type content here"
       sticky.archive = false
-      $scope.stickies.push sticky
+      s = Sticky.save {}, sticky
+      console.log s
+      $scope.stickies.push s
 
     $scope.letGoSticky = (sticky, $index) ->
       left = $('.sticky-note')[$index].style.left
