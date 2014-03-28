@@ -2,22 +2,26 @@ StickyCtrls = angular.module "StickyCtrls", []
 
 StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
   ($scope, Sticky) ->
-    $scope.stickies_promise = Sticky.query()
-    $scope.sticks = $scope.stickies
+    Sticky.query (data) ->
+      $scope.stickies = []
+      angular.forEach data, (sticky, index) ->
+        $scope.stickies.push sticky
+
     $scope.collapseArchive = true
     $scope.zIndex = 0;
     $scope.shadow = {};
+    $scope.movingSticky = {}
 
     $scope.clearSearch = () ->
       $scope.searchSticky = "" 
-
-    $scope.unArchive = () ->
-      $scope.movingSticky.archive = false
 
     $scope.onMove = (event, ui, sticky, $index) ->
       $scope.movingSticky = sticky
       console.log $scope.movingSticky
       console.log('move is happening')
+
+    $scope.unArchive = () ->
+      $scope.movingSticky.archive = false
 
     $scope.focusSticky = (sticky) ->
       $scope.zIndex += 1
@@ -46,7 +50,13 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
 
 
     $scope.createSticky = () ->
-      console.log("Sticky Created")
+      sticky = {}
+      sticky.top = "90px"
+      sticky.left = (window.innerWidth/2 - 125) + "px"
+      sticky.title = "New Sticky"
+      sticky.body = "Type content here"
+      sticky.archive = false
+      $scope.stickies.push sticky
 
     $scope.letGoSticky = (sticky, $index) ->
       left = $('.sticky-note')[$index].style.left
