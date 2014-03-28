@@ -2,6 +2,73 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.form-img {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.sticky-img {
+  float: left;
+  height: 250px;
+  margin-top: 25px;
+}
+
+.form-box {
+  width: 200px;
+  float: left;
+}
+
+.sign-up-in {
+  text-align: center;
+  font-size: 24px; 
+}
+
+.headline {
+  text-align: center;
+  font-size: 36px;
+  font-family: 'Candal', sans-serif;
+}
+
+.input-margin {
+  margin-bottom: 10px;
+}
+
+.container {
+  background-color: #dcdcdc;
+}
+
+.navbar.navbar-default {
+  background-color: #1f4f58;
+  border-color: #3893a5;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #71ccd2;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: white;
+}
+
+.navbar.navbar-default a {
+  color: #71ccd2;
+  font-family: 'Candal', sans-serif;
+}
+
+.navbar.navbar-default a:hover {
+  color: white;
+}
+
+.btn-default {
+  color: white;
+  background-color: #2c797e;
+}
+
+.btn-default:hover {
+  background-color: white;
+  color: #2c797e;
+}
+
 .drop-box {
   height: 100vh;
 }
@@ -16,11 +83,34 @@
   margin-bottom: 0px;  
 }
 
+.archive-container {
+  height: 250px;
+  overflow: scroll;
+  width: 245px;
+  border-bottom: 3px solid black;
+}
+
 .archive-sticky-title {
   width: 244px;
   margin: 0;
   padding: 10px;
   border-top: 3px solid black;
+  font-family: 'Nothing You Could Do', cursive;
+}
+
+.archive-sticky > h1 {
+  font-family: 'Candal', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.signout > h1{
+  font-family: 'Candal', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .archive-sticky.archive-collapse {
@@ -57,8 +147,14 @@
   width: 250px;
   border: 3px solid black;
   position: absolute;
-  background-color: yellow;
+  background-color: rgba(208, 228, 227, 0.97);
   z-index: 0;
+  border-radius: 15px;
+}
+
+.sticky-note h3 {
+  font-family: 'Nothing You Could Do', cursive;
+  font-size: 28px;
 }
 
 .sticky-title {
@@ -82,12 +178,14 @@ input.title {
   border: none;
   outline: none;
   width: 244px;
+  background-color: #F0FCFB;
 }
 
 textarea.body {
-  height: 180px;
+  height: 165px;
   width: 234px;
   margin: 10px 5px;
   border: none;
   outline: none;
+  background-color: #F0FCFB;
 }
