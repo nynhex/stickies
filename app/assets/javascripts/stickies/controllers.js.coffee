@@ -13,13 +13,14 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
       Sticky.query (data) ->
         $scope.stickies = []
         angular.forEach data, (sticky, index) ->
-          sticky.left = sticky.left_ratio * $scope.innerWidth
+          sticky.left = sticky.left_ratio * $scope.innerWidth + "px"
           $scope.stickies.push sticky 
 
       $(window).on "resize", 
         () ->
           if window.innerWidth != $scope.innerWidth
-            console.log $scope.innerWidth / 1280
+            angular.forEach $scope.stickies, (sticky, index) ->
+              sticky.left = sticky.left_ratio * window.innerWidth + "px"
             $scope.innerWidth = window.innerWidth
 
     $scope.init()
