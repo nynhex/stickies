@@ -3,23 +3,26 @@ StickyCtrls = angular.module "StickyCtrls", []
 StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
   ($scope, Sticky) ->
 
-    Sticky.query (data) ->
-      $scope.stickies = []
-      angular.forEach data, (sticky, index) ->
-        $scope.stickies.push sticky
-
     $scope.init = () ->
-      console.log "hello World"
+      $scope.collapseArchive = true
+      $scope.zIndex = 0;
+      $scope.shadow = {};
+      $scope.movingSticky = {}
+      $scope.innerWidth = window.innerWidth 
+
+      Sticky.query (data) ->
+        $scope.stickies = []
+        angular.forEach data, (sticky, index) ->
+          $scope.stickies.push sticky 
+
       $(window).on "resize", 
         () ->
-          console.log window.innerWidth
+          if window.innerWidth != $scope.innerWidth
+            console.log $scope.innerWidth / 1280
+            $scope.innerWidth = window.innerWidth
 
     $scope.init()
 
-    $scope.collapseArchive = true
-    $scope.zIndex = 0;
-    $scope.shadow = {};
-    $scope.movingSticky = {}
 
     $scope.clearSearch = () ->
       $scope.searchSticky = "" 
@@ -57,7 +60,6 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
       sticky.archive = true
       Sticky.update {id: sticky.id}, sticky
 
-
     $scope.createSticky = () ->
       sticky = {}
       sticky.top = "90px"
@@ -69,7 +71,6 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
       $scope.stickies.push s
       $scope.focusSticky(s)
      
-
     $scope.letGoSticky = (sticky, $index) ->
       left = $('.sticky-note')[$index].style.left
       top = $('.sticky-note')[$index].style.top
