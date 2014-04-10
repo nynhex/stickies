@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140326171230) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "left"
+    t.float    "left_ratio"
     t.string   "top"
     t.boolean  "archive"
   end

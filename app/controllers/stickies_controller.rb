@@ -17,7 +17,7 @@ class StickiesController < ApplicationController
   end
 
   def create
-    create_params = params[:sticky].permit(:body, :title, :top, :left, :archive)
+    create_params = params[:sticky].permit(:body, :title, :top, :left_ratio, :archive)
     sticky = current_user.stickies.create(create_params)
 
     render json: sticky.to_json
@@ -26,7 +26,7 @@ class StickiesController < ApplicationController
   def update 
     id = params[:id]
     sticky = current_user.stickies.find(id)
-    update_params = params[:sticky].permit(:title, :body, :top, :left, :archive)
+    update_params = params[:sticky].permit(:title, :body, :top, :left_ratio, :archive)
     sticky.update(update_params)
 
     render json: sticky.to_json

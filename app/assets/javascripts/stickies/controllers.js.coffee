@@ -13,6 +13,7 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
       Sticky.query (data) ->
         $scope.stickies = []
         angular.forEach data, (sticky, index) ->
+          sticky.left = sticky.left_ratio * $scope.innerWidth
           $scope.stickies.push sticky 
 
       $(window).on "resize", 
@@ -64,10 +65,12 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
       sticky = {}
       sticky.top = "90px"
       sticky.left = (window.innerWidth/2 - 125) + "px"
+      sticky.left_ratio = parseFloat(sticky.left) / $scope.innerWidth
       sticky.title = "New Sticky"
       sticky.body = "Type content here"
       sticky.archive = false
       s = Sticky.save {}, sticky
+      s.left = sticky.left
       $scope.stickies.push s
       $scope.focusSticky(s)
      
@@ -76,6 +79,6 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
       top = $('.sticky-note')[$index].style.top
       sticky.left = left
       sticky.top = top
-      Sticky.update {id: sticky.id}, sticky
+      # Sticky.update {id: sticky.id}, sticky
 
 ]
