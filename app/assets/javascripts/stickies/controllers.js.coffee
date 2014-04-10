@@ -71,14 +71,18 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
       sticky.archive = false
       s = Sticky.save {}, sticky
       s.left = sticky.left
+      console.log s
+      console.log sticky
       $scope.stickies.push s
       $scope.focusSticky(s)
      
     $scope.letGoSticky = (sticky, $index) ->
       left = $('.sticky-note')[$index].style.left
       top = $('.sticky-note')[$index].style.top
+      ratio = parseFloat(left)/$scope.innerWidth
+      sticky.left_ratio = ratio
       sticky.left = left
       sticky.top = top
-      # Sticky.update {id: sticky.id}, sticky
+      Sticky.update {id: sticky.id}, sticky
 
 ]
