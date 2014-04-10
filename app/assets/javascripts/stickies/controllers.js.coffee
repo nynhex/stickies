@@ -2,10 +2,19 @@ StickyCtrls = angular.module "StickyCtrls", []
 
 StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
   ($scope, Sticky) ->
+
     Sticky.query (data) ->
       $scope.stickies = []
       angular.forEach data, (sticky, index) ->
         $scope.stickies.push sticky
+
+    $scope.init = () ->
+      console.log "hello World"
+      $(window).on "resize", 
+        () ->
+          console.log window.innerWidth
+
+    $scope.init()
 
     $scope.collapseArchive = true
     $scope.zIndex = 0;
