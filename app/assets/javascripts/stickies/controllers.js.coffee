@@ -25,6 +25,10 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
 
     $scope.init()
 
+    $scope.destroy = (sticky) ->
+      index = $scope.stickies.indexOf sticky
+      $scope.stickies.splice(index, 1)
+      Sticky.delete {id: sticky.id}
 
     $scope.clearSearch = () ->
       $scope.searchSticky = "" 
