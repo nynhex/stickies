@@ -3,10 +3,8 @@ class StickiesController < ApplicationController
 
   def index
     stickies = current_user.stickies.order(:updated_at)
-    respond_to do |f|
-      f.html { render "stickies/index", layout: false }
-      f.json {render json: stickies.to_json}
-    end
+
+    render json: stickies.to_json
   end
 
   def show

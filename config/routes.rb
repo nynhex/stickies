@@ -17,6 +17,10 @@ Stickies::Application.routes.draw do
   end 
 
   resources :stickies
+
+  get "/view/free", to: "view#free"
+  get "/view/grid", to: "view#grid"
+  get "/view/list", to: "view#list"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
