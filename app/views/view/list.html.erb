@@ -1,1 +1,7 @@
-list.html.erb
+<%= render "partials/nav" %>
+
+<div class="drop-box" jqyoui-droppable="{onDrop: 'unArchive()'}" data-drop="true" >
+
+  <%= render "partials/archive" %>
+
+</div>
