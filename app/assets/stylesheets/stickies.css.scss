@@ -39,7 +39,7 @@
   margin-bottom: 10px;
 }
 
-.container {
+.body {
   background-color: #dcdcdc;
 }
 
@@ -126,9 +126,9 @@
 
 .archive-sticky {
   width: 244px;
-  float: right;
+  right: 0;
   background-color: #f8f8f8;
-  position: relative;
+  position: absolute;
   border: 3px solid black;
   border-top: none;
   z-index: 99;
