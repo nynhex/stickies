@@ -1,20 +1,7 @@
 <%= render 'partials/nav' %>
 
 <div class="drop-box" jqyoui-droppable="{onDrop: 'unArchive()'}" data-drop="true" >
-  <div class="archive-sticky" ng-class="{'archive-collapse': collapseArchive}">
-    <h1>Archive</h1>
-
-    <div class="archive-container" >
-      <div ng-repeat="stick in stickies | filter:{archive: true}">
-        <div data-drag="true" jqyoui-draggable="{onStart: 'onMove(stick, $index)' }" ng-model="movingSticky" value="stick" data-jqyoui-options="{revert: 'invalid'}">
-          <button class="btn btn-danger destroy" ng-click="destroy(stick, $index)">Delete</button>
-          <h3 class="archive-sticky-title">{{stick.title}}</h3>
-        </div>
-      </div>
-    </div>
-
-    <a href="/signout" class="signout"><h1>Sign Out</h1></a>
-  </div>
+  <%= render 'partials/archive' %>
 
   <div ng-repeat="sticky in stickies | filter:{archive: false} | filter:searchSticky">
 
