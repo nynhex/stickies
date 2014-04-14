@@ -4,7 +4,7 @@
 
   <%= render "partials/archive" %>
 
-    <div ng-repeat="sticky in stickies | filter:{archive: false} | filter:searchSticky">
+    <div ng-repeat="sticky in stickies | filter:{archive: false} | filter:searchSticky | orderBy:'updated_at':true">
 
       <div class="row" >
 

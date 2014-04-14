@@ -41,10 +41,11 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
     $scope.onMove = (event, ui, sticky, $index) ->
       $scope.movingSticky = sticky
 
-
     $scope.unArchive = () ->
       $scope.movingSticky.archive = false
-      Sticky.update {id: $scope.movingSticky.id}, $scope.movingSticky
+      Sticky.update {id: $scope.movingSticky.id}, $scope.movingSticky, 
+        (data) ->
+          $scope.movingSticky.updated_at = data.updated_at 
 
     $scope.focusSticky = (sticky) ->
       $scope.zIndex += 1
@@ -69,7 +70,10 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
 
     $scope.archive = (sticky) ->
       sticky.archive = true
-      Sticky.update {id: sticky.id}, sticky
+      console.log sticky.updated_at
+      Sticky.update {id: sticky.id}, sticky, 
+        (data) ->
+          sticky.updated_at = data.updated_at 
 
     $scope.createSticky = () ->
       sticky = {}
@@ -81,8 +85,6 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
       sticky.archive = false
       s = Sticky.save {}, sticky
       s.left = sticky.left
-      console.log s
-      console.log sticky
       $scope.stickies.push s
       $scope.focusSticky(s)
      
