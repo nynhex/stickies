@@ -2,7 +2,7 @@
   <h1>Archive</h1>
 
   <div class="archive-container" >
-    <div ng-repeat="stick in stickies | filter:{archive: true}">
+    <div ng-repeat="stick in stickies | filter:{archive: true} | orderBy:'updated_at':true">
       <div data-drag="true" jqyoui-draggable="{onStart: 'onMove(stick, $index)' }" ng-model="movingSticky" value="stick" data-jqyoui-options="{revert: 'invalid'}">
         <button class="btn btn-danger destroy" ng-click="destroy(stick, $index)">Delete</button>
         <h3 class="archive-sticky-title">{{stick.title}}</h3>
