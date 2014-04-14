@@ -7,7 +7,7 @@
   <div class="row">
     <div ng-repeat="sticky in stickies | filter:{archive: false} | filter:searchSticky">
 
-      <div class="col-sm-3" >
+      <div class="col-sm-3 sticky-grid" >
 
         <div class="sticky-note" ng-dblclick="editSticky(sticky)" ng-mousedown="focusSticky(sticky)" ng-class="{'sticky-shadow': sticky.stickyShadow}" ng-style="{position: 'static', margin: '10px auto'}" >
 

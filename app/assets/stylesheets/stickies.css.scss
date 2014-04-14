@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.sticky-grid {
+  border: 1px solid rgb(187, 195, 195);
+}
+
 .sticky-note-list.sticky-note-list-open {
   height: 250px;
 }
