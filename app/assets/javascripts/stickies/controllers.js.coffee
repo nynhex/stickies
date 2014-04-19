@@ -50,9 +50,12 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
     $scope.focusSticky = (sticky) ->
       $scope.zIndex += 1
       sticky.zIndex = $scope.zIndex
-      $scope.shadow.stickyShadow = false
-      $scope.shadow = sticky
-      $scope.shadow.stickyShadow = true
+      if sticky != $scope.shadow
+        $scope.shadow.stickyShadow = false
+        $scope.shadow = sticky
+        $scope.shadow.stickyShadow = true
+      else
+        $scope.shadow.stickyShadow = false
 
     $scope.toggleArchive = () ->
       $scope.collapseArchive = !$scope.collapseArchive
