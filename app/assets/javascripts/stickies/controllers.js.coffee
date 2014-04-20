@@ -5,7 +5,7 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
 
     $scope.init = () ->
       # initialize scoped variables
-      $scope.collapseArchive = true
+      $scope.openArchive = false
       $scope.zIndex = 0;
       $scope.shadow = {};
       $scope.draggingSticky = {}
@@ -73,7 +73,7 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
 
     # open or close archive container
     $scope.toggleArchiveContainer = () ->
-      $scope.collapseArchive = !$scope.collapseArchive
+      $scope.openArchive = !$scope.openArchive
 
     # display edit form inside sticky note
     $scope.editForm = (sticky) ->

@@ -143,18 +143,18 @@
   margin-top: 10px;
 }
 
-.archive-sticky.archive-collapse {
-  width: 0px;
-  border: 0px solid black;
+.archive-sticky.archive-open {
+  width: 244px;
+  border: 3px solid black;
+  border-top: none;
 }
 
 .archive-sticky {
-  width: 244px;
+  width: 0;
   right: 0;
   background-color: #f8f8f8;
   position: absolute;
-  border: 3px solid black;
-  border-top: none;
+  border: none;
   z-index: 99;
   overflow: hidden;
   -webkit-transition: width 0.35s ease, border .5s ease;
