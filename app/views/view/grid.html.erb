@@ -9,21 +9,21 @@
 
       <div class="col-sm-3 sticky-grid" >
 
-        <div class="sticky-note" ng-dblclick="editSticky(sticky)" ng-mousedown="focusSticky(sticky)" ng-class="{'sticky-shadow': sticky.stickyShadow}" ng-style="{position: 'static', margin: '10px auto'}" >
+        <div class="sticky-note" ng-dblclick="editForm(sticky)" ng-mousedown="focusSticky(sticky)" ng-class="{'sticky-shadow': sticky.stickyShadow}" ng-style="{position: 'static', margin: '10px auto'}" >
 
-          <form ng-submit="changeContent(sticky)" >
+          <form ng-submit="editSticky(sticky)" >
 
             <h3 class="sticky-title" ng-hide="sticky.hiddentext">{{sticky.title}}
               <span class="glyphicon glyphicon-remove x-sticky" ng-click="archive(sticky)"></span>
             </h3>
 
             <h3 class="sticky-title" ng-show="sticky.hiddentext">
-              <input type="text" class="title" autofocus ng-model="stickies.titlechange" />
+              <input type="text" class="title" autofocus ng-model="sticky.title" />
             </h3>
 
             <div class="divider"></div>
             <p class="sticky-body" ng-hide="sticky.hiddentext">{{sticky.body}}</p>
-            <textarea class="body" ng-model="stickies.bodychange" ng-show="sticky.hiddentext"></textarea>
+            <textarea class="body" ng-model="sticky.body" ng-show="sticky.hiddentext"></textarea>
           </form>
 
         </div>

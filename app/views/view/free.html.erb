@@ -1,25 +1,38 @@
 <%= render 'partials/nav' %>
 
+<!-- div element is set as a drop zone for archived sticky notes.
+      when element is released in this zone it becomes unarchived -->
 <div class="drop-box" jqyoui-droppable="{onDrop: 'unArchive()'}" data-drop="true" >
   <%= render 'partials/archive' %>
 
+  <!-- iterate, but filter by archive status false. also filter by input to search text field -->
   <div ng-repeat="sticky in stickies | filter:{archive: false} | filter:searchSticky">
 
-    <div class="sticky-note" ng-dblclick="editSticky(sticky)" ng-style="{ top: sticky.top, left: sticky.left, 'z-index': sticky.zIndex }" drag-me="" ng-mouseup="letGoSticky(sticky, $index)" ng-mousedown="focusSticky(sticky)" ng-class="{'sticky-shadow': sticky.stickyShadow}" >
+    <!-- following ng-directives used in sticky-note:
+      ng-mousedown: call focusSticky to highlight sticky note
+      ng-mouseup: call finishDrag to persist new location of sticky note
+      drag-me: allow div to be draggable
+      ng-style: pass in values for top, left, and z-index
+      ng-class: toggle sticky-shadow class when stikcy note is highlighted
+      ng-dblclick: display edit form
+     -->
+    <div class="sticky-note" ng-dblclick="editForm(sticky)" ng-style="{ top: sticky.top, left: sticky.left, 'z-index': sticky.zIndex }" drag-me="" ng-mouseup="finishDrag(sticky, $index)" ng-mousedown="focusSticky(sticky)" ng-class="{'sticky-shadow': sticky.stickyShadow}" >
 
-      <form ng-submit="changeContent(sticky)" >
+      <!-- when form is submitted call editSticky -->
+      <form ng-submit="editSticky(sticky)" >
 
         <h3 class="sticky-title" ng-hide="sticky.hiddentext">{{sticky.title}}
           <span class="glyphicon glyphicon-remove x-sticky" ng-click="archive(sticky)"></span>
         </h3>
 
         <h3 class="sticky-title" ng-show="sticky.hiddentext">
-          <input type="text" class="title" autofocus ng-model="stickies.titlechange" />
+          <input type="text" class="title" autofocus ng-model="sticky.title" />
         </h3>
 
         <div class="divider"></div>
         <p class="sticky-body" ng-hide="sticky.hiddentext">{{sticky.body}}</p>
-        <textarea class="body" ng-model="stickies.bodychange" ng-show="sticky.hiddentext"></textarea>
+        <textarea class="body" ng-model="sticky.body" ng-show="sticky.hiddentext"></textarea>
+        
       </form>
 
     </div>

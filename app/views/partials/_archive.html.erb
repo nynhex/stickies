@@ -2,12 +2,23 @@
   <h1>Archive</h1>
 
   <div class="archive-container" >
+
+    <!-- iterate but filter by archived status set to true; order by most recent update to note  -->
     <div ng-repeat="stick in stickies | filter:{archive: true} | orderBy:'updated_at':true">
-      <div data-drag="true" jqyoui-draggable="{onStart: 'onMove(stick, $index)' }" ng-model="movingSticky" value="stick" data-jqyoui-options="{revert: 'invalid'}">
+
+      <!-- following ng directives:
+        data-drag directive set to true to allow element to be draggable
+        jqyoui-draggabel directive establishes a set of callbacks to be called. onDrag callback when element 
+                          starts being dragged
+       -->
+      <div data-drag="true" jqyoui-draggable="{onStart: 'onDrag(stick, $index)' }" value="stick" data-jqyoui-options="{revert: 'invalid'}">
+        <!-- delete button permanently deletes sticky note -->
         <button class="btn btn-danger destroy" ng-click="destroy(stick, $index)">Delete</button>
         <h3 class="archive-sticky-title">{{stick.title}}</h3>
       </div>
+
     </div>
+
   </div>
 
   <a href="/signout" class="signout"><h1>Sign Out</h1></a>
