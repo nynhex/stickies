@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+nav.navbar.navbar-default {
+  z-index: 700;
+}
+
 .sticky-grid {
   border: 1px solid rgb(187, 195, 195);
 }
@@ -134,6 +138,7 @@
   text-align: center;
   margin-top: 10px;
   text-decoration: none;
+  width: 244px;
 }
 
 .signout > h1{
@@ -141,6 +146,7 @@
   font-size: 24px;
   text-align: center;
   margin-top: 10px;
+  width: 244px;
 }
 
 .archive-sticky.archive-open {
