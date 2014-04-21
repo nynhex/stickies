@@ -100,10 +100,11 @@ StickyCtrls.controller "StickyCtrl", [ "$scope", "Sticky"
       sticky.title = "New Sticky"
       sticky.body = "Type content here"
       sticky.archive = false
-      s = Sticky.save {}, sticky
-      s.left = sticky.left
-      $scope.stickies.push s
-      $scope.focusSticky(s)
+      Sticky.save {}, sticky, 
+        (s) ->
+          $scope.stickies.unshift s
+          $scope.focusSticky s
+          s.left = sticky.left
      
     # upon release of note persist new location to the database
     $scope.finishDrag = (sticky, $index) ->
